@@ -17,7 +17,7 @@ func TestHello(t *testing.T) {
 	})
 
 	t.Run("Hello with empty string", func(t *testing.T) {
-		expected := "Hello, "
+		expected := "Hello, World"
 		actual := Hello("")
 		assertCorrectMessage(t, expected, actual)
 	})
