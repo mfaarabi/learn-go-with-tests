@@ -22,3 +22,24 @@ func TestHello(t *testing.T) {
 		assertCorrectMessage(t, expected, actual)
 	})
 }
+
+func TestSum(t *testing.T) {
+	assertCorrectMessage := func(t *testing.T, expected, actual int) {
+		t.Helper()
+		if expected != actual {
+			t.Errorf("Expected %q, actual %q.", expected, actual)
+		}
+	}
+
+	t.Run("Array", func(t *testing.T) {
+		numbers := [5]int{1, 2, 3, 4, 5}
+
+		expected := 15
+		actual := Sum(numbers)
+		assertCorrectMessage(t, expected, actual)
+	})
+
+	t.Run("Slices", func(t *testing.T) {
+		numbers := 
+	})
+}
