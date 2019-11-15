@@ -22,6 +22,17 @@ func Sum(numbers []int) int {
 	return sum
 }
 
+func SumAll(numbers ...[]int) []int {
+	lengthOfNumbers := len(numbers)
+	sums := make([]int, lengthOfNumbers)
+
+	for i, numbers := range numbers {
+		sums[i] = Sum(numbers)
+	}
+
+	return sums
+}
+
 func main() {
 	fmt.Println(Hello("world"))
 }

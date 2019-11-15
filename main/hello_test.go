@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestHello(t *testing.T) {
 	assertCorrectMessage := func(t *testing.T, expected, actual string) {
@@ -36,6 +39,21 @@ func TestSum(t *testing.T) {
 
 		expected := 6
 		actual := Sum(numbers)
+		assertCorrectMessage(t, expected, actual)
+	})
+}
+
+func TestSumAll(t *testing.T) {
+	assertCorrectMessage := func(t *testing.T, expected, actual []int) {
+		t.Helper()
+		if !reflect.DeepEqual(expected, actual) {
+			t.Errorf("Expected %q, actual %q.", expected, actual)
+		}
+	}
+
+	t.Run("Test", func(t *testing.T) {
+		expected := []int{3, 9}
+		actual := SumAll([]int{1, 2}, []int{0, 9})
 		assertCorrectMessage(t, expected, actual)
 	})
 }
