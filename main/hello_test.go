@@ -31,15 +31,11 @@ func TestSum(t *testing.T) {
 		}
 	}
 
-	t.Run("Array", func(t *testing.T) {
-		numbers := [5]int{1, 2, 3, 4, 5}
+	t.Run("Slices", func(t *testing.T) {
+		numbers := []int{1, 2, 3}
 
-		expected := 15
+		expected := 6
 		actual := Sum(numbers)
 		assertCorrectMessage(t, expected, actual)
-	})
-
-	t.Run("Slices", func(t *testing.T) {
-		numbers := 
 	})
 }

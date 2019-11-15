@@ -6,7 +6,7 @@
 	"tasks": [
 		{
 			"label": "test",
-			"command": "go test -v ./...",
+			"command": "go test -cover -v ./...",
 			"group": {
 				"kind": "test",
 				"isDefault": true
