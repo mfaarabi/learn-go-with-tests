@@ -12,3 +12,10 @@ func TestPerimeter(t *testing.T) {
 
 	assert.Equal(t, expected, actual)
 }
+
+func TestArea(t *testing.T) {
+	expected := 72.0
+	actual := Area(12.0, 6.0)
+
+	assert.Equal(t, expected, actual)
+}
