@@ -1,17 +1,15 @@
 package wallet
 
-import (
-	"testing"
-
-	"github.com/stretchr/testify/assert"
-)
+import "testing"
 
 func TestWallet(t *testing.T) {
 	wallet := Wallet{}
-	wallet.Deposit(10)
-	expected := 10
+	wallet.Deposit(Bitcoin(10))
+	expected := Bitcoin(10)
 
 	actual := wallet.Balance()
 
-	assert.Equal(t, expected, actual)
+	if expected != actual {
+		t.Errorf("Was expecting %s but got %s instead", expected, actual)
+	}
 }
