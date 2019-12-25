@@ -10,10 +10,13 @@ func TestWallet(t *testing.T) {
 		}
 	}
 
-	assertError := func(t *testing.T, err error) {
+	assertError := func(t *testing.T, expected string, actual error) {
 		t.Helper()
-		if err == nil {
-			t.Error("Was expecting an error but didn't get one")
+		if actual == nil {
+			t.Fatal("Was expecting an error but didn't get one")
+		}
+		if actual.Error() != expected {
+			t.Errorf("Was expecting %q but got %q instead", expected, actual)
 		}
 	}
 
@@ -46,6 +49,6 @@ func TestWallet(t *testing.T) {
 		actual := wallet.Balance()
 
 		assertBalance(t, expected, actual)
-		assertError(t, err)
+		assertError(t, "Amount to withdraw is exceeding balance", err)
 	})
 }
