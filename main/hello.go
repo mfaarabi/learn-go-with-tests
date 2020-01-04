@@ -1,11 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"os"
-
-	"github.com/mfaarabi/learn-go-with-tests/greet"
-)
+import "fmt"
 
 const englishHelloPrefix = "Hello, "
 
@@ -39,5 +34,4 @@ func SumAll(numbers ...[]int) []int {
 
 func main() {
 	fmt.Println(Hello("world"))
-	greet.Greet(os.Stdout, "Wendy\n")
 }
