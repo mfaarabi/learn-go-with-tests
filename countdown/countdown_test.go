@@ -9,7 +9,10 @@ import (
 
 func TestCountdown(t *testing.T) {
 	buffer := &bytes.Buffer{}
-	expected := "3"
+	expected := `3
+2
+1
+Go!`
 
 	Countdown(buffer)
 	actual := buffer.String()
