@@ -7,9 +7,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type SpySleeper struct{}
+type SpySleeper struct {
+	Calls int
+}
 
-func (s *SpySleeper) Sleep() {}
+func (s *SpySleeper) Sleep() {
+	s.Calls++
+}
 
 func TestCountdown(t *testing.T) {
 	buffer := &bytes.Buffer{}
@@ -23,4 +27,5 @@ Go!`
 	actual := buffer.String()
 
 	assert.Equal(t, expected, actual)
+	assert.Equal(t, 4, spySleeper.Calls)
 }
