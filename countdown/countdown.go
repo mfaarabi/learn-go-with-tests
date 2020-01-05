@@ -3,18 +3,20 @@ package countdown
 import (
 	"fmt"
 	"io"
-	"time"
 )
 
 const seconds = 3
-const secondDelay = 1 * time.Second
 const finalWord = "Go!"
 
-func Countdown(out io.Writer) {
+type Sleeper interface {
+	Sleep()
+}
+
+func Countdown(out io.Writer, sleeper Sleeper) {
 	for i := seconds; i > 0; i-- {
-		time.Sleep(secondDelay)
+		sleeper.Sleep()
 		fmt.Fprintln(out, i)
 	}
-	time.Sleep(secondDelay)
+	sleeper.Sleep()
 	fmt.Fprint(out, finalWord)
 }
